@@ -4,6 +4,8 @@
 
 > 目前仍處於最小可啟動核心階段，尚未實作真正的多工、程序管理或使用者空間。
 
+如需了解更完整的設計、啟動流程與研究實驗，請參閱 [PROJECT_GUIDE.md](PROJECT_GUIDE.md)。
+
 ## 授權
 
 Copyright (C) 2026 YUNG-EN KU / XiaoKu1022
