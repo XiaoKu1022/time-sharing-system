@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 YUNG-EN KU / XiaoKu1022
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #include "vga.h"
 #include "../kernel/io.h"
 #include "../lib/string.h"
@@ -19,7 +24,7 @@ static inline uint16_t make_vga_entry(char c, uint8_t color) {
     return (uint16_t)c | ((uint16_t)color << 8);
 }
 
-// 透過 I/O Port 0x3D4/0x3D5 更新 VGA 硬體游標位置
+// Update the hardware cursor through the VGA control ports.
 static void update_cursor(int x, int y) {
     uint16_t pos = y * VGA_WIDTH + x;
     outb(0x3D4, 0x0F);
@@ -28,14 +33,14 @@ static void update_cursor(int x, int y) {
     outb(0x3D5, (uint8_t)((pos >> 8) & 0xFF));
 }
 
-// 畫面到底時，向上滾動一行
+// Scroll the display when the cursor reaches the last row.
 static void scroll(void) {
     for (size_t y = 0; y < VGA_HEIGHT - 1; y++) {
         for (size_t x = 0; x < VGA_WIDTH; x++) {
             vga_buffer[y * VGA_WIDTH + x] = vga_buffer[(y + 1) * VGA_WIDTH + x];
         }
     }
-    // 清除最後一行
+    // Clear the new last row.
     uint16_t blank = make_vga_entry(' ', terminal_color);
     for (size_t x = 0; x < VGA_WIDTH; x++) {
         vga_buffer[(VGA_HEIGHT - 1) * VGA_WIDTH + x] = blank;
@@ -69,8 +74,8 @@ void vga_putc(char c) {
         terminal_row++;
     } else if (c == '\r') {
         terminal_col = 0;
-    } else if (c == '\t'){
-        // pass
+    } else if (c == '\t') {
+        // Tabs are currently ignored.
     } else {
         vga_buffer[terminal_row * VGA_WIDTH + terminal_col] = make_vga_entry(c, terminal_color);
         terminal_col++;

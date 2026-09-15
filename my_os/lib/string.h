@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 YUNG-EN KU / XiaoKu1022
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #ifndef LIB_STRING_H
 #define LIB_STRING_H
 

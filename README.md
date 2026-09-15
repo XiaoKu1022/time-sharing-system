@@ -4,6 +4,12 @@
 
 > 目前仍處於最小可啟動核心階段，尚未實作真正的多工、程序管理或使用者空間。
 
+## 授權
+
+Copyright (C) 2026 YUNG-EN KU / XiaoKu1022
+
+本專案以 GNU General Public License version 3（GPLv3）授權。除非另有說明，專案中的原始碼與文件皆依 GPLv3 的條款發布。完整授權條款請參閱 [LICENSE](LICENSE) 或 [GNU GPLv3 官方網站](https://www.gnu.org/licenses/gpl-3.0.html)。
+
 ## 開發環境
 
 本專案以 macOS 為主要開發環境，依賴以下工具：

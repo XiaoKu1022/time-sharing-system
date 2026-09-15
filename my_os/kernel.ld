@@ -1,12 +1,15 @@
+# Copyright (C) 2026 YUNG-EN KU / XiaoKu1022
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 ENTRY(kernel_main)
 
 SECTIONS
 {
-    /* 核心程式碼載入的線性位址 */
+    /* Kernel load address. */
     . = 0x10000;
 
     .text : ALIGN(4) {
-        *(.entry)       /* 強制將 kernel_main 放最前面 */
+        *(.entry)       /* Place kernel_main first. */
         *(.text*)
     }
 

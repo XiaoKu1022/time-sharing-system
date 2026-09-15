@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 YUNG-EN KU / XiaoKu1022
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #ifndef DRIVERS_VGA_H
 #define DRIVERS_VGA_H
 

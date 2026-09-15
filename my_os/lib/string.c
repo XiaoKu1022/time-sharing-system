@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 YUNG-EN KU / XiaoKu1022
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 #include "string.h"
 
 size_t strlen(const char* str) {
@@ -22,7 +27,7 @@ void* memcpy(void* dest, const void* src, size_t count) {
     return dest;
 }
 
-// 支援 10 進位與 16 進位轉字串
+// Convert an integer to a string in the requested base.
 char* itoa(int value, char* str, int base) {
     char* rc;
     char* ptr;
@@ -42,7 +47,7 @@ char* itoa(int value, char* str, int base) {
         value /= base;
     } while (value);
     *ptr-- = '\0';
-    // 反轉字串
+    // Reverse the generated digits.
     while (low < ptr) {
         char tmp = *low;
         *low++ = *ptr;
@@ -50,5 +55,3 @@ char* itoa(int value, char* str, int base) {
     }
     return rc;
 }
-
-
