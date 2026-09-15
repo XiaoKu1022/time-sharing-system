@@ -15,8 +15,8 @@ C_OBJECTS = $(C_SOURCES:.c=.o)
 all: os.img
 
 # Build the boot sector.
-bootsect.bin: boot/bootsect.S
-	$(AS) -o bootsect.o boot/bootsect.S
+bootsect.bin: boot/bootsect.s
+	$(AS) -o bootsect.o boot/bootsect.s
 	$(LD) -Ttext 0x7c00 --oformat binary -o bootsect.bin bootsect.o
 
 # Build the setup image.
